@@ -9,7 +9,7 @@ const Alert = ({ value, device }) => {
 
       const timer = setTimeout(() => {
         setIsShown(false);
-      }, 2000000000);
+      }, 5000);
       return () => clearTimeout(timer);
     }
   }, []);
