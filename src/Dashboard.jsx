@@ -69,7 +69,7 @@ const Dashboard = () => {
     let value = objTime[time].reduce((acc, ele) => acc + ele.reading, 0);
     let average = value / objTime[time].length;
     console.log("average temp", time, " ", average);
-    tempAvgData.push({ time: time, average: average });
+    tempAvgData.push({ time: time, average: average.toFixed(2) });
     // console.log("value : ", value);
   }
 
@@ -130,7 +130,7 @@ const Dashboard = () => {
     let average = value / obj[key].length;
     console.log("average temp", average);
     console.log("value : ", value);
-    tempAvgDevice.push({ device_name: key, average: average });
+    tempAvgDevice.push({ device_name: key, average: average.toFixed(2) });
   }
 
   let newOffice = Object.keys(obj).map(ele => obj[ele]);
@@ -160,9 +160,21 @@ const Dashboard = () => {
       </nav>
       <div className="content-wrapper-main">
         <div className="card-container-wrapper">
-          <Card heading="Max Temp" title={deviceNameMax} temp={maxTemp} />
-          <Card heading="Min Temp" title={deviceNameMin} temp={minTemp} />
-          <Card heading="Avg Temp" title="All Devices" temp={avgTempAll} />
+          <Card
+            heading="Max Temp"
+            title={deviceNameMax}
+            temp={maxTemp.toFixed(2)}
+          />
+          <Card
+            heading="Min Temp"
+            title={deviceNameMin}
+            temp={minTemp.toFixed(2)}
+          />
+          <Card
+            heading="Avg Temp"
+            title="All Devices"
+            temp={avgTempAll.toFixed(2)}
+          />
         </div>
         <div className="wireless-container">
           {tempAvgDevice && (
